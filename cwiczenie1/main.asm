@@ -1,12 +1,12 @@
 .686
 .model flat
 
-public  main
+public  _main
 
 .data
 
 .code
-main PROC
-	mov rax, 255
-main ENDP
+_main PROC
+	mov eax, 255
+_main ENDP
 END

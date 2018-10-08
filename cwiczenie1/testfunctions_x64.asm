@@ -1,6 +1,3 @@
-;.686
-;.model flat
-
 public  testf
 
 .data

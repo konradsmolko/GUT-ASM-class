@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="testfunctions.asm" />
+    <MASM Include="testfunctions_x64.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

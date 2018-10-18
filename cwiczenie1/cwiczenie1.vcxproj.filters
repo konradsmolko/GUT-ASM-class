@@ -15,12 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="testfunctions_x64.asm">
+    <MASM Include="main.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

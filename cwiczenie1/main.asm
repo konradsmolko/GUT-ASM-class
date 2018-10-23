@@ -1,24 +1,24 @@
-; program przyk≥adowy (wersja 64-bitowa)
+; program przykladowy (wersja 64-bitowa)
 extern _write       : PROC
 extern ExitProcess  : PROC
 
 public main
 .data
-tekst	db 10, 'Nazywam sie Konrad Smolko' , 10
+tekst	db 0Ah, 'Nazywam si', 0Eh, 0Ah, 'Konrad Smolko' , 0Ah
 		db 'Moj pierwszy 64-bitowy program asemblerowy '
-		db 'dziala juz poprawnie!', 10
+		db 'dziala juz poprawnie!', 0Ah
 .code
 main PROC
-	mov rcx, 1	; uchwyt urzπdzenia wyjúciowego
-	mov rdx, OFFSET tekst ; po≥oøenie obszaru ze znakami
-	mov r8, 92	; liczba znakÛw wyúwietlanego tekstu
+	mov rcx, 1	; uchwyt urzadzenia wyjsciowego
+	mov rdx, OFFSET tekst ; polozenie obszaru ze znakami
+	mov r8, 93	; liczba znakow wyswietlanego tekstu
 	sub rsp, 40	; przygotowanie obszaru na stosie dla funkcji _write
-	call _write	; wywo≥anie funkcji î_writeî z biblioteki jÍzyka C
-	add rsp, 40	; usuniÍcie ze stosu wczeúniej zarezerwowanego obszaru
+	call _write	; wywolanie funkcji ‚Äù_write‚Äù z biblioteki j√™zyka C
+	add rsp, 40	; usuni√™cie ze stosu wczesniej zarezerwowanego obszaru
 
-	sub rsp, 8	; wyrÛwnanie zawartoúci RSP, tak by by≥a podzielna przez 16
+	sub rsp, 8	; wyrownanie zawartosci RSP, tak by byla podzielna przez 16
 
-	mov rcx, 0	; zakoÒczenie wykonywania programu
+	mov rcx, 0	; zakonczenie wykonywania programu
 	call ExitProcess	; kod powrotu programu 
 
 main  ENDP

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "koprocesor", "koprocesor\koprocesor.vcxproj", "{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cwiczenie1", "cwiczenie1\cwiczenie1.vcxproj", "{BCFCDD05-54A9-4AEB-96CB-CBDB3D1586DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab2-UTF", "Lab2-UTF\Lab2-UTF.vcxproj", "{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,7 @@ Global
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Debug|Win32.ActiveCfg = Debug|Win32
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Debug|Win32.Build.0 = Debug|Win32
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Debug|x64.ActiveCfg = Debug|Win32
+		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Debug|x64.Build.0 = Debug|Win32
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Release|Win32.ActiveCfg = Release|Win32
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Release|Win32.Build.0 = Release|Win32
 		{7DE6DA74-F90D-4F20-A51A-949BD8271EFF}.Release|x64.ActiveCfg = Release|Win32
@@ -29,8 +32,19 @@ Global
 		{BCFCDD05-54A9-4AEB-96CB-CBDB3D1586DD}.Release|Win32.Build.0 = Release|Win32
 		{BCFCDD05-54A9-4AEB-96CB-CBDB3D1586DD}.Release|x64.ActiveCfg = Release|x64
 		{BCFCDD05-54A9-4AEB-96CB-CBDB3D1586DD}.Release|x64.Build.0 = Release|x64
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Debug|Win32.Build.0 = Debug|Win32
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Debug|x64.ActiveCfg = Debug|x64
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Debug|x64.Build.0 = Debug|x64
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Release|Win32.ActiveCfg = Release|Win32
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Release|Win32.Build.0 = Release|Win32
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Release|x64.ActiveCfg = Release|x64
+		{5EE42F8C-416F-4C8F-AA6C-E41B3845107E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CF584FE-249C-40B2-AA85-ACF142F46B0E}
 	EndGlobalSection
 EndGlobal

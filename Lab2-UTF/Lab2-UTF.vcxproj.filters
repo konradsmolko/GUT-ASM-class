@@ -15,7 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <MASM Include="main2.asm">
+      <Filter>Pliki źródłowe</Filter>
+    </MASM>
     <MASM Include="main.asm">
+      <Filter>Pliki źródłowe</Filter>
+    </MASM>
+    <MASM Include="main3.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
   </ItemGroup>

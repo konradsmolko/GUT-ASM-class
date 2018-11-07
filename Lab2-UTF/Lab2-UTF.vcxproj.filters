@@ -15,14 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="main2.asm">
+    <MASM Include="duzelitery.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
-    <MASM Include="main.asm">
+    <MASM Include="unicode.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
-    <MASM Include="main3.asm">
+    <MASM Include="find.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,11 +1,12 @@
 ; wczytywanie i wyœwietlanie tekstu wielkimi literami
-; (inne znaki siê nie zmieniaj¹)
+; (inne znaki siê nie zmieniaja)
 .686
 .model flat
 extern _ExitProcess@4 : PROC
-extern __write : PROC ; (dwa znaki podkreœlenia)
-extern __read  : PROC ; (dwa znaki podkreœlenia)
-public  _amain
+extern __write : PROC ; (dwa znaki podkreslenia)
+extern __read  : PROC ; (dwa znaki podkreslenia)
+public  _duzelitery
+
 .data
 	tekst_pocz	db	10, 'Proszê napisaæ jakiœ tekst '
 				db	'i nacisnac Enter', 10
@@ -13,8 +14,9 @@ public  _amain
 	magazyn	db	80	dup (?)
 	nowa_linia	db	10
 	liczba_znakow	dd ?
+
 .code
-_amain:
+_duzelitery PROC
 	; wyœwietlenie tekstu informacyjnego
 	; liczba znaków tekstu
 	mov     ecx,(OFFSET koniec_t)-(OFFSET tekst_pocz)
@@ -107,4 +109,5 @@ dalej:
 	add     esp, 12  ; usuniecie parametrów ze stosu
 	push    0
 	call    _ExitProcess@4   ; zakoñczenie programu
+_duzelitery ENDP
 END

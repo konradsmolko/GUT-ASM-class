@@ -21,7 +21,10 @@
     <MASM Include="unicode.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
-    <MASM Include="find.asm">
+    <MASM Include="find_asm-input.asm">
+      <Filter>Pliki źródłowe</Filter>
+    </MASM>
+    <MASM Include="find_mixed.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
   </ItemGroup>

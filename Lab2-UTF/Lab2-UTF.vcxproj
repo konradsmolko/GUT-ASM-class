@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <MASM Include="find_asm-input.asm" />
+    <MASM Include="find_mixed.asm" />
     <MASM Include="unicode.asm" />
     <MASM Include="duzelitery.asm" />
-    <MASM Include="find.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

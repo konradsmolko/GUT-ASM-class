@@ -5,7 +5,8 @@
 ; ret - miejsce na ktorym jest znak (od poczatku stringa, nie od n). brak c = ret -1
 .686
 .model flat
-public _find
+public _find_mixed
+extern _strlen : PROC
 
 .code
 ;mov         eax,dword ptr [n]  
@@ -14,7 +15,7 @@ public _find
 ;push        ecx  
 ;mov         edx,dword ptr [tekst]
 ;push        edx  
-_find PROC
+_find_mixed PROC
 	; push ramka stosu
 	push	ebp
 	mov		ebp, esp
@@ -22,10 +23,19 @@ _find PROC
 	push	edi
 	push	esi
 	; push koniec ramki stosu
+
+	; wczytywanie danych
 	mov		ebx, [ebp+8] ; ebx = *str
+	push	ebx
+	call	_strlen
+	add		esp, 4
+	mov		edx, [ebp+16] ; edx = n
+	cmp		edx, eax ; sprawdzenie czy n nie jest wiêksze od dlugosci stringa
+	jg		brak_znaku
 	mov		ecx, [ebp+12] ; ecx = c
-	mov		edx, [ebp+16] ; edx = n (HEX)
 	dec		edx ; indeks od 0
+	;koniec wczytywania danych
+
 	xor		eax, eax
 
 nastepny:
@@ -35,6 +45,8 @@ nastepny:
 	je		koniec
 	cmp		al, 0
 	jne		nastepny
+
+brak_znaku:
 	mov		edx, -1 ; doszlismy do konca stringa i brak znaku - zwracamy -1
 	jmp		koniec
 
@@ -47,5 +59,5 @@ koniec:
 	; end koniec ramki stosu
 	mov		eax, edx
 	ret
-_find ENDP
+_find_mixed ENDP
 END

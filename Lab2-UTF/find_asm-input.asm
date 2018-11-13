@@ -21,6 +21,7 @@ extern _printf : PROC
 	string	db 126 dup (0) ; "str" jest mnemonikiem
 	dchar	db ?, ?
 	sint	dd ? ; max. liczba znaków - 0FFFFh
+	slen	dd ?
 
 .code
 _find PROC
@@ -46,7 +47,8 @@ _find PROC
 	push	0
 	call	_read
 	add		esp, 12 ; oczyszczenie stosu z parametrow
-	push	eax ; zapisuje ilosc znakow
+	;push	eax ; zapisuje ilosc znakow
+	mov		slen, eax ; zapisuje ilosc znakow
 
 	lea		eax, input2
 	push	25
@@ -88,7 +90,8 @@ _find PROC
 	;koniec wczytywania danych
 
 	mov		edx, eax
-	pop		eax
+	;pop		eax
+	mov		eax, slen
 	cmp		edx, eax ; sprawdzenie czy n nie jest wiêksze od dlugosci stringa
 	jg		brak_znaku
 
@@ -102,6 +105,8 @@ nastepny:
 	inc		edx
 	cmp		al, cl
 	je		koniec
+	cmp		edx, slen ; przypadek, gdy string wypelnil bufor i nie ma zera konczacego
+	jge		brak_znaku
 	cmp		al, 0
 	jne		nastepny
 

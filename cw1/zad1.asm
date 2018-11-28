@@ -36,7 +36,6 @@ ptl2:
 	mov		[edi+edx*4], ebx
 	inc		edx
 	cmp		edx, 256
-	;jl		ptl
 
 
 	popa

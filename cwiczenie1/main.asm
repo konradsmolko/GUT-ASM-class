@@ -2,13 +2,13 @@
 extern _write       : PROC
 extern ExitProcess  : PROC
 
-public xmain
+public main
 .data
-tekst	db 0Ah, 'Nazywam się Konrad Smolko', 0Ah
+tekst	db 0Ah, 'Nazywam sie Konrad Smolko', 0Ah
 		db 'Moj pierwszy 64-bitowy program asemblerowy '
 		db 'dziala juz poprawnie!', 0Ah
 .code
-xmain PROC
+main PROC
 	mov rcx, 1	; uchwyt urzadzenia wyjsciowego
 	mov rdx, OFFSET tekst ; polozenie obszaru ze znakami
 	mov r8, 93	; liczba znakow wyswietlanego tekstu
@@ -21,5 +21,5 @@ xmain PROC
 	mov rcx, 0	; zakonczenie wykonywania programu
 	call ExitProcess	; kod powrotu programu 
 
-xmain ENDP
+main ENDP
 END

@@ -2,9 +2,10 @@
 .model flat
 public _main
 .data
-	bufor dq 256 dup (12345678ABCDEF0Eh)
+	bufor dq 256 dup (01234567ABCDEF0Eh)
 	wynik dq 256 dup (?)
-	granica	dd 11111111h ; debug - sprawdzenie czy petla nie wychodzi poza zakres wyniku
+	granica	db 0FFh ; debug - sprawdzenie czy petla nie wychodzi poza zakres wyniku
+					; wynik ostatniego bitu w wyniku nie zależy od wartości w granicy (0 lub F)
 .code
 _main PROC
 	pusha
@@ -15,34 +16,13 @@ _main PROC
 	xor		ebx, ebx
 	xor		eax, eax
 
-	mov		dl, BYTE PTR [esi+ebx] ; 0Eh ; pierwsze 2 bajty
-	mov		dh, dl ; 0Eh ; skopiowanie
+	mov		dh, BYTE PTR [esi+ebx] ; pierwszy bajt, tylko na potrzeby zapisania pierwszego bitu kodu
 
-	mov		ah, dh
-	and		ah, 80h ; zapisanie pierwszego bitu
-
-	shl		dh, 1 ; przygotowanie do op. xnor
-	mov		al, BYTE PTR [esi+ebx+1]
-	rol		al, 1
-	and		al, 00000001b
-	and		dh, 11111110b
-	or		dh, al ; wpisanie ostatniego bitu z kolejnego bajtu
-
-	xor		dl, dh
-	not		dl ; główna funkcja dekodująca
-
-	ror		dx, 1 ; pierwszy bit dh = xnor 7 i 8 bitu danych
-	and		dl, 01111111b ; wyzerowanie 1 bitu wyniku
-	or		dl, ah ; wpisanie pierwszego bitu
-
-	mov		[edi+ebx], BYTE PTR dl
-
-	inc		ebx
-	dec		ecx
 main_loop:
-	mov		dl, BYTE PTR [esi+ebx] ; pierwsze 2 bajty
 	mov		ah, dh
-	and		ah, 80h ; zapisanie pierwszego bitu
+	and		ah, 80h ; zapisanie pierwszego bitu danej pary bajtów
+
+	mov		dl, BYTE PTR [esi+ebx] ; pierwszy bajt
 	mov		dh, dl ; skopiowanie
 
 	mov		al, BYTE PTR [esi+ebx+1]
@@ -50,22 +30,19 @@ main_loop:
 	and		al, 00000001b
 	shl		dh, 1 ; przygotowanie do op. xnor
 	and		dh, 11111110b
-	or		dh, al ; wpisanie ostatniego bitu z kolejnego bajtu
+	or		dh, al ; wpisanie pierwszego bitu z kolejnego bajtu
 
 	xor		dl, dh
-	not		dl ; główna funkcja dekodująca
+	not		dl ; dekodowanie - operacja xnor
 
-	ror		dx, 1 ; pierwszy bit dh = xnor 7 i 8 bitu danych
+	ror		dx, 1 ; pierwszy bit dh = xnor 8 i 9 bitu danych w każdej pętli
 	and		dl, 01111111b ; wyzerowanie 1 bitu wyniku
-	or		dl, ah ; wpisanie pierwszego bitu
+	or		dl, ah ; wpisanie pierwszego (już zdekodowanego) bitu
 
-	mov		[edi+ebx], BYTE PTR dl
+	mov		[edi+ebx], BYTE PTR dl ; zapisanie zdekodowanego bajtu
 
 	inc		ebx
-debug_dalej:
 	loop main_loop
-
-
 
 	popa
 	ret

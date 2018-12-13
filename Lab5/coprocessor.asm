@@ -1,7 +1,8 @@
 .686
 .model flat
 
-public _nowy_exp ; float nowy_exp(float x)
+public _nowy_exp ; 5.2, float nowy_exp(float x)
+; 5.4
 ;srednia kwadratowa tablicy floatow flost sr_kw(float *tab, int liczba_elem)
 .data
 	; 2x^2 -x -15 = 0

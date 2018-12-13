@@ -19,4 +19,9 @@
       <Filter>Pliki źródłowe</Filter>
     </MASM>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

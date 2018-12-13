@@ -3,8 +3,9 @@
 public _szukaj_max ; int szukaj_max(int x, int y, int z)
 public _szukaj4_max ; int szukaj4_max (int a, int b, int c, int d)
 public _substitute ; int substitute(char* str, char w, char c)
+public _odejmij_jeden ; void odejmij_jeden(int** liczba)
 .code
-_substitute PROC
+_substitute PROC ; Zadanie dodatkowe
 	push	ebp
 	mov		ebp, esp
 
@@ -35,7 +36,7 @@ koniec:
 	pop		ebp
 	ret
 _substitute ENDP
-_szukaj_max PROC
+_szukaj_max PROC ; przyklad
 	push	ebp       ; zapisanie zawartoœci EBP na stosie
 	mov		ebp, esp  ; kopiowanie zawartoœci ESP do EBP 
 	mov		eax, [ebp+8]   ; liczba x 
@@ -60,7 +61,7 @@ y_wieksza:
 	mov		eax, [ebp+12]  ; liczba y 
 	jmp		zakoncz 
 _szukaj_max ENDP 
-_szukaj4_max PROC
+_szukaj4_max PROC ; Zadanie 4.1
 	push	ebp       ; zapisanie zawartoœci EBP na stosie
 	mov		ebp, esp  ; kopiowanie zawartoœci ESP do EBP 
 	mov		eax, [ebp+8]   ; liczba x 
@@ -94,4 +95,16 @@ b_wieksza:
 	jge		zakoncz	; b >= d
 	jmp		wpisz_d
 _szukaj4_max ENDP
+_odejmij_jeden PROC ; Zadanie 4.3
+	push	ebp
+	mov		ebp, esp
+
+	mov		eax, [ebp+8] ; eax = **liczba
+	mov		ebx, [eax] ; ebx = *liczba
+	dec		dword PTR [ebx]
+
+	mov		esp, ebp
+	pop		ebp
+	ret
+_odejmij_jeden ENDP
 END 

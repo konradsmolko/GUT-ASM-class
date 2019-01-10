@@ -121,6 +121,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\kbd.asm" />
+    <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\lab.asm" />
     <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\slalom.asm" />
     <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\slalom_v2.asm" />
     <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\test.asm" />

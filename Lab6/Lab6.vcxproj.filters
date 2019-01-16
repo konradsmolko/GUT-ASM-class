@@ -30,5 +30,8 @@
     <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\kbd.asm">
       <Filter>Pliki źródłowe</Filter>
     </MASM>
+    <MASM Include="..\..\..\..\..\OneDrive\Documents\AKO\prz.asm">
+      <Filter>Pliki źródłowe</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
